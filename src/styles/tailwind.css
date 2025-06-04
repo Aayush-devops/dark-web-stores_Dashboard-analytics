@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Primary Colors */
+  --color-primary: #2563EB; /* Deep blue (primary) - blue-600 */
+  --color-secondary: #059669; /* Professional green (secondary) - emerald-600 */
+  --color-accent: #DC2626; /* High-contrast red (accent) - red-600 */
+  
+  /* Background Colors */
+  --color-background: #0F172A; /* Rich dark background - slate-900 */
+  --color-surface: #1E293B; /* Elevated surface color - slate-800 */
+  
+  /* Text Colors */
+  --color-text-primary: #F8FAFC; /* High-contrast white - slate-50 */
+  --color-text-secondary: #94A3B8; /* Muted gray - slate-400 */
+  
+  /* Status Colors */
+  --color-success: #10B981; /* Vibrant green - emerald-500 */
+  --color-warning: #F59E0B; /* Attention-grabbing amber - amber-500 */
+  --color-error: #EF4444; /* Clear red - red-500 */
+  
+  /* Border Colors */
+  --color-border: #334155; /* Border color - slate-600 */
+  
+  /* Shadow Colors */
+  --shadow-subtle: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-elevated: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-floating: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-text-primary font-body;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
+
+@layer components {
+  .nav-tab {
+    @apply px-6 py-3 text-sm font-medium text-text-secondary hover:text-text-primary transition-colors duration-200 ease-out border-b-2 border-transparent hover:border-primary/50;
+  }
+  
+  .nav-tab-active {
+    @apply text-primary border-primary;
+  }
+  
+  .card-elevated {
+    @apply bg-surface rounded-lg shadow-elevated;
+  }
+  
+  .status-indicator {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+  
+  .status-success {
+    @apply bg-success/10 text-success;
+  }
+  
+  .status-warning {
+    @apply bg-warning/10 text-warning;
+  }
+  
+  .status-error {
+    @apply bg-error/10 text-error;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .animation-reduced {
+    @media (prefers-reduced-motion: reduce) {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
